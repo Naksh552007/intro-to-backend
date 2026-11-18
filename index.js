@@ -1,12 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import postRouter from "./routes/post.route.js";
 
 dotenv.config();
 
 const app = express();
 
 app.use(express.json()); 
+
+app.use("/api/v1/posts", postRouter);
 
 const PORT = process.env.PORT || 4000;
 
